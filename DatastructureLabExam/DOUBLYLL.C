@@ -11,7 +11,6 @@ void insertbeg();
 void insertlast();
 void insertpos();
 void delbeg();
-void dellast();
 void delpos();
 void display();  
 void search();  
@@ -25,11 +24,10 @@ clrscr();
        printf("2.Insert at last\n");
        printf("3.Insert at position\n");
        printf("4.Delete from Beginning\n");
-       printf("5.Delete from last\n");
-       printf("6.Delete at any position\n");
-       printf("7.Search\n");
-       printf("8.Display\n");
-       printf("9.Exit\n");
+       printf("5.Delete at any position\n");
+       printf("6.Search\n");
+       printf("7.Display\n");
+       printf("8.Exit\n");
        printf("\nEnter your choice:\n");
        scanf("\n%d",&choice);
 	switch(choice)
@@ -47,18 +45,15 @@ clrscr();
 	    delbeg();
 	    break;
 	    case 5:
-	    dellast();
-	    break;
-	    case 6:
 	    delpos();
 	    break;
-	    case 7:
+	    case 6:
 	    search();
 	    break;
-	    case 8:
+	    case 7:
 	    display();
 	    break;
-	    case 9:
+	    case 8:
 	    exit(0);
 	    break;
 	    default:
@@ -189,31 +184,6 @@ void delbeg()
 	printf("\nnode deleted\n");
     }
 
-}
-void dellast()
-{
-    struct node *ptr;
-    if(head == NULL)
-    {
-	printf("\n UNDERFLOW");
-    }
-    else if(head->next == NULL)
-    {
-	head = NULL;
-	free(head);
-	printf("\nnode deleted\n");
-    }
-    else
-    {
-	ptr = head;
-	if(ptr->next != NULL)
-	{
-	    ptr = ptr -> next;
-	}
-	ptr -> prev -> next = NULL;
-	free(ptr);
-	printf("\nnode deleted\n");
-    }
 }
 void delpos()
 {
